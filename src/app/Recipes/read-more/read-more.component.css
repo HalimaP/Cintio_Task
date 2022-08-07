@@ -5,7 +5,16 @@
   align-items: center;
   padding: 1% 0% 0% 1%;
 }
-
+.imgButton{
+    width: 100%;
+    background: #fafaf4;
+    border-radius: 9px;
+    margin-left: 55%;
+}
+.back-image{
+    height: 28px;
+    width: 37px;
+}
 .main {
   background: #fef3f3;
   margin-bottom: 10px;
