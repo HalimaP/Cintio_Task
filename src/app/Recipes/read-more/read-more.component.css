@@ -5,6 +5,21 @@
   align-items: center;
   padding: 1% 0% 0% 1%;
 }
+.types{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.coloredTypes{
+    display: flex;
+    background: black;
+    color: white;
+    width: 22%;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%;
+}
 .imgButton{
     width: 100%;
     background: #fafaf4;

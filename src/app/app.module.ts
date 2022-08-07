@@ -9,12 +9,15 @@ import { RecipesComponent } from './Recipes/recipes.component';
 import { Pipe, PipeTransform } from '@angular/core';
 import { SearchComponent } from './search/search.component';
 import { CommonModule } from '@angular/common';
+import { ReadMoreComponent } from './Recipes/read-more/read-more.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RecipesComponent,
     SearchComponent,
+    ReadMoreComponent
     
   ],
   imports: [

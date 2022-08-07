@@ -16,7 +16,7 @@
   </h6>
 </div>
 <div *ngIf="segment[0] == true" class="container">
-  <div *ngFor="let recipe of recipesByType.results; let i = index ">
+  <div *ngFor="let recipe of recipesByType; let i = index ">
     <div
       *ngIf="searchText === '' || recipe.title.toLowerCase().includes(searchText)">
       <div class="flex-item">
@@ -38,7 +38,7 @@
   </div>
 </div>
 <div *ngIf="segment[1] == true" class="container">
-  <div *ngFor="let recipe of recipesByType.results; let i = index ">
+  <div *ngFor="let recipe of recipesByType; let i = index ">
     <div
       *ngIf="searchText === '' || recipe.title.toLowerCase().includes(searchText)"
     >

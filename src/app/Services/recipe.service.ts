@@ -48,7 +48,6 @@ export class RecipeService {
       take(1),
       map((data: any) => {
         this.$id.next(data);
-        console.log(data)
         return data;
       })
     );

@@ -81,17 +81,19 @@
 }
 .segmentItems button{
   margin-right: 3%;
+  background: #dfd9d9;
+  color: black;
+  font-weight: bold;
+  width: 120px;
+  border: 2px solid #eec6c6;
+}
+.segmentItems .breadButton {
+  /* ispod */
+  margin-right: 3%;
   background: #1e1d1d;
   color: white;
   width: 100px;
   border: 2px solid #5d5757;
-}
-.segmentItems .breadButton {
-  margin-right: 3%;
-  background: #dfd9d9;
-  color: black;
-  width: 120px;
-  border: 2px solid #eec6c6;
 }
 
 input {

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { RecipeService } from "src/app/Services/recipe.service";
-
+import { DomSanitizer } from "@angular/platform-browser";
 @Component({
   selector: "app-read-more",
   templateUrl: "./read-more.component.html",
@@ -10,16 +10,14 @@ import { RecipeService } from "src/app/Services/recipe.service";
 })
 export class ReadMoreComponent implements OnInit {
   recipesSub : Subscription | undefined
-  newsSub: Subscription | undefined;
   articleIndex: number = 0;
   articleData: any = [];
   title: string = "";
-  storedTitle: any;
-  types: any = [] 
   constructor(
     private recipeService: RecipeService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    protected sanitizer: DomSanitizer
   ) {
     this.articleData = this.router.getCurrentNavigation()?.extras.state;
   }
@@ -31,16 +29,15 @@ export class ReadMoreComponent implements OnInit {
     });
     this.recipesSub = this.recipeService.fetchId(this.articleIndex).subscribe((data) => {
       this.articleData = data;
-      console.log(this.articleData)
-   console.log(data.dishTypes)
-   for(let i=0; i <= data.dishTypes.length; i++){
-    this.types.push(data.dishTypes[i])
-   
-   }
-   console.log(this.types)
+     this.articleData.summary = this.sanitizer.bypassSecurityTrustHtml(data.summary);
     });
     
   
+  }
+  ngOnDestroy(){
+    if(this.recipesSub){
+      this.recipesSub.unsubscribe();
+    }
   }
   
 }

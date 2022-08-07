@@ -59,7 +59,7 @@ type : string = '';
   getId(id: number){
 this.recipesService.fetchId(id).subscribe((data: number)=>{
 this.id = data
-console.log(this.id)
+
 })
   }
   onSearchTextEntered(searchValue: string) {
@@ -79,7 +79,7 @@ console.log(this.id)
         this.recipesByTypeSub = this.recipesService
           .fetchMoreRecipes(type)
           .subscribe((data) => {
-            this.recipesByType = data;
+            this.recipesByType = data.results;
             console.log("prvi", data);
             console.log(type);
             this.segment = [true, false];
@@ -90,7 +90,7 @@ console.log(this.id)
         this.recipesByTypeSub = this.recipesService
           .fetchMoreRecipes(type)
           .subscribe((data) => {
-            this.recipesByType = data;
+            this.recipesByType = data.results;
             console.log("drugi", data);
             console.log(type);
 
@@ -109,15 +109,15 @@ console.log(this.id)
         this.selectedAsFavorite = this.favoriteRecipes.length;
       }
     }
-    if (this.recipesByType.results.length > 0) {
-      for (let i = 0; i < this.recipesByType.results.length; i++) {
-        if (this.recipesByType.results[i].id == id) {
+    // if (this.recipesByType.length > 0) {
+      for (let i = 0; i < this.recipesByType.length; i++) {
+        if (this.recipesByType[i].id == id) {
           this.isFavorite[id] = !this.isFavorite[id];
-          this.favoriteRecipes.push(this.recipesByType.results[i]);
+          this.favoriteRecipes.push(this.recipesByType[i]);
           this.selectedAsFavorite = this.favoriteRecipes.length;
         }
       }
-    }
+    // }
     //  this.isFavorite = !this.isFavorite
   }
 
@@ -152,10 +152,6 @@ console.log(this.id)
   }
 
   onReadMoreClick(id: number) {
-  //  657579
-    // let id =  this.getId(index)
-    console.log(id)
-    
     this.router.navigate(["home", "read-more", id], {
       // state: this.localRecipes[index].id,
     });

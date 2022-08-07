@@ -1,25 +1,31 @@
 <div class="title">
   <a href="index.html"
-    ><button class="imgButton"> <img class="back-image" src="../../../assets/images/back-icon.png" alt=""
-  /></button></a>
-  
+    ><button class="imgButton">
+      <img
+        class="back-image"
+        src="../../../assets/images/back-icon.png"
+        alt=""
+      /></button
+  ></a>
 </div>
-<div class="flexbox">
-  <article class="main" >
+<div class="flexbox" >
+  <article class="main">
     <h1>{{articleData.title}}</h1>
-    <p>
-      {{articleData.summary}}
+    <p [innerHTML]="articleData.summary">
     </p>
-    <div>
-   
-  </div>
+    <h3 *ngIf="articleData.dishTypes.length > 0">Dish Types: </h3>
+    <div class="types" >
+      <div *ngFor="let type of articleData.dishTypes; let i=index" class="coloredTypes"> <p >{{type}}</p></div>
+     
+    </div>
+    
   </article>
+  
   <section class="side">
     <img src="{{articleData.image}}" alt="" />
     <p>Ready in minutes: {{articleData.readyInMinutes}}</p>
     <p>Servings: {{articleData.servings}}</p>
   </section>
 </div>
-<div *ngFor="let type of types">
-  <button>{{type}}</button>
-</div>
+
+
