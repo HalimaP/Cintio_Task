@@ -1,0 +1,86 @@
+<div class="searchSegmentItems">
+  <div class="segmentItems">
+    <button (click)="segmentChanged('bread')">Bread</button>
+    <button (click)="segmentChanged('sauce')">Sauce</button>
+  </div>
+  <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+</div>
+<div class="favourite-recipes" *ngIf="favoriteRecipes.length > 0">
+  <div>
+    <input type="checkbox" (click)="addFavoritesOnTheTop()" /><span
+      >Show Favourite recipes first</span
+    >
+  </div>
+  <h6 *ngIf="isChecked === true">
+    Favourite recipes: {{favoriteRecipes.length}}
+  </h6>
+</div>
+<div *ngIf="segment[0] == true" class="container">
+  <div *ngFor="let recipe of recipesByType.results; let i = index ">
+    <div
+      *ngIf="searchText === '' || recipe.title.toLowerCase().includes(searchText)"
+    >
+      <div class="flex-item">
+        <img src="{{recipe.image}}" class="image" alt="" />
+        <div class="row">
+          <h5>{{recipe.title}}</h5>
+
+          <img
+            (click)="onItemClick(recipe.id)"
+            class="icon"
+            [src]="!isFavorite[recipe.id]? '../../../assets/images/white-heart.svg' : '../../../assets/images/black_heart.svg'"
+          />
+        </div>
+        <button class="detailsButton" (click)=" onReadMoreClick(i)">
+          Show Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="segment[1] == true" class="container">
+  <div *ngFor="let recipe of recipesByType.results; let i = index ">
+    <div
+      *ngIf="searchText === '' || recipe.title.toLowerCase().includes(searchText)"
+    >
+      <div class="flex-item">
+        <img src="{{recipe.image}}" class="image" alt="" />
+        <div class="row">
+          <h5>{{recipe.title}}</h5>
+
+          <img
+            (click)="onItemClick(recipe.id)"
+            class="icon"
+            [src]="!isFavorite[recipe.id]? '../../../assets/images/white-heart.svg' : '../../../assets/images/black_heart.svg'"
+          />
+        </div>
+        <button class="detailsButton" (click)=" onReadMoreClick(i)">
+          Show Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="segment[0] == false && segment[1] == false">
+  <div *ngFor="let recipe of localRecipes; let i = index">
+    <div
+      *ngIf="searchText === '' || recipe.title.toLowerCase().includes(searchText)"
+    >
+      <div class="flex-item">
+        <img src="{{recipe.image}}" class="image" alt="" />
+        <div class="row">
+          <h5>{{recipe.title}}</h5>
+
+          <img
+            (click)="onItemClick(recipe.id)"
+            class="icon"
+            [src]="!isFavorite[recipe.id]? '../../../assets/images/white-heart.svg' : '../../../assets/images/black_heart.svg'"
+          />
+        </div>
+        <button class="detailsButton" (click)=" onReadMoreClick(i)">
+          Show Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

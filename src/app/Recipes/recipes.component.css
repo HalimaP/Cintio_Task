@@ -1,0 +1,113 @@
+.container {
+  /* border: 1px solid silver; */
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  background: rgb(242, 137, 118);
+  padding: 4px;
+  width: 175px;
+  height: 207px;
+  margin: 16px 18px 5px 17px;
+  line-height: 11px;
+  color: white;
+  font-size: 2em;
+  text-align: center;
+}
+
+.first {
+  background-image: "../../../assets/images/white-heart.svg";
+}
+.second {
+  background-image: "../../../assets/images/black_heart.svg";
+}
+.image {
+  width: 100%;
+}
+.icon {
+  width: 40%;
+  height: 40%;
+}
+.row {
+  font-size: small;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 46px;
+  align-items: center;
+}
+.detailsButton {
+  background-color: blanchedalmond;
+  font-size: 10px;
+  padding: 2%;
+  border-radius: 10px 10px 10px 10px;
+  border: 3px solid rgb(232, 125, 125);
+}
+.detailsButton:hover {
+  background-color: rgb(241, 161, 115);
+  border: 3px solid white;
+  color: white;
+  font-size: small;
+}
+.searchSegmentItems {
+  display: flex;
+  justify-content: space-between;
+  padding: 1% 2% 2% 1%;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.segmentItems {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+
+  /* width: 13%; */
+}
+.segmentItems button {
+  margin-right: 3%;
+  background: #9e8787;
+  color: white;
+  width: 100px;
+}
+input {
+  margin-left: 2%;
+}
+span {
+  font-size: small;
+}
+.favourite-recipes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1% 8% 0% 2%;
+}
+.favourite-recipes div {
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .searchSegmentItems {
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 6% 2% 1%;
+  }
+}
