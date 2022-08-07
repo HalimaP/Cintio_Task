@@ -30,7 +30,6 @@ export class RecipeService {
 
         map((data: any) => {
           this.$recipes.next(data.results);
-          console.log(data);
           return data;
         })
       );

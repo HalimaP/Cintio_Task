@@ -42,16 +42,8 @@ export class RecipesComponent implements OnInit {
   ngOnInit(): void {
     this.recipesSub = this.recipesService.getRecipes().subscribe((data) => {
       this.localRecipes = data.recipes;
-      console.log(data.recipes);
-
-      console.log(this.localRecipes);
+    
     });
-
-    // this.httpClient.get("assets/recipes.json").subscribe((data) => {
-    //   console.log(data);
-    //   this.localRecipes = data;
-    // });
-    console.log(this.recipesService.$recipes);
   }
 
   ngOnDestroy() {
@@ -65,7 +57,10 @@ export class RecipesComponent implements OnInit {
   onSearchTextEntered(searchValue: string) {
     if (searchValue.length > 2) {
       this.searchText = searchValue;
-      console.log(this.searchText);
+      console.log(this.searchText );
+    }
+    if(searchValue.length <= 2){
+      this.searchText = ''
     }
   }
   segmentChanged(type: string) {

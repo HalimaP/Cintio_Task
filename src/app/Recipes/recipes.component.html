@@ -18,8 +18,7 @@
 <div *ngIf="segment[0] == true" class="container">
   <div *ngFor="let recipe of recipesByType.results; let i = index ">
     <div
-      *ngIf="searchText === '' || recipe.title.toLowerCase().includes(searchText)"
-    >
+      *ngIf="searchText === '' || recipe.title.toLowerCase().includes(searchText)">
       <div class="flex-item">
         <img src="{{recipe.image}}" class="image" alt="" />
         <div class="row">
