@@ -26,6 +26,7 @@ type : string = '';
   recipesSub: Subscription | undefined;
   recipesByTypeSub: Subscription | undefined;
   recipesByType: any;
+  id: number =0
   recipes: any = [];
   isChecked = false;
   selectedAsFavorite: number = 0;
@@ -42,7 +43,8 @@ type : string = '';
   ngOnInit(): void {
     this.recipesSub = this.recipesService.getRecipes().subscribe((data) => {
       this.localRecipes = data.recipes;
-    
+      console.log(this.localRecipes)
+   
     });
   }
 
@@ -53,6 +55,12 @@ type : string = '';
     if (this.recipesByTypeSub) {
       this.recipesByTypeSub.unsubscribe();
     }
+  }
+  getId(id: number){
+this.recipesService.fetchId(id).subscribe((data: number)=>{
+this.id = data
+console.log(this.id)
+})
   }
   onSearchTextEntered(searchValue: string) {
     if (searchValue.length > 2) {
@@ -143,9 +151,13 @@ type : string = '';
     // this.isChecked = false;
   }
 
-  onReadMoreClick(index: number) {
-    this.router.navigate(["home", "read-more", index], {
-      state: this.localRecipes[index],
+  onReadMoreClick(id: number) {
+  //  657579
+    // let id =  this.getId(index)
+    console.log(id)
+    
+    this.router.navigate(["home", "read-more", id], {
+      // state: this.localRecipes[index].id,
     });
   }
 }

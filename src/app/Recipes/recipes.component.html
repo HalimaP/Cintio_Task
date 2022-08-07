@@ -76,7 +76,7 @@
             [src]="!isFavorite[recipe.id]? '../../../assets/images/white-heart.svg' : '../../../assets/images/black_heart.svg'"
           />
         </div>
-        <button class="detailsButton" (click)=" onReadMoreClick(i)">
+        <button class="detailsButton" (click)=" onReadMoreClick(recipe.id)">
           Show Details
         </button>
       </div>

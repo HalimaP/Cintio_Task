@@ -10,10 +10,16 @@
     <p>
       {{articleData.summary}}
     </p>
+    <div>
+   
+  </div>
   </article>
   <section class="side">
     <img src="{{articleData.image}}" alt="" />
     <p>Ready in minutes: {{articleData.readyInMinutes}}</p>
     <p>Servings: {{articleData.servings}}</p>
   </section>
+</div>
+<div *ngFor="let type of types">
+  <button>{{type}}</button>
 </div>

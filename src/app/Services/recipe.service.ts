@@ -9,6 +9,7 @@ import { environment } from "src/environments/environment";
 export class RecipeService {
   public $recipes = new BehaviorSubject<any>(null);
   public $recipesByType = new BehaviorSubject<any>(null);
+  public $id = new BehaviorSubject<number>(0)
   constructor(private httpClient: HttpClient) {}
 
   public getRecipes(number:number = 10) {
@@ -37,5 +38,19 @@ export class RecipeService {
           return data;
         })
       );
+  }
+  fetchId(id: number){
+    return this.httpClient
+    .get(
+      `${environment.mainUrl}/${id}/information?apiKey=${environment.apiKey}`
+    )
+    .pipe(
+      take(1),
+      map((data: any) => {
+        this.$id.next(data);
+        console.log(data)
+        return data;
+      })
+    );
   }
 }

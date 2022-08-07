@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { RecipesComponent } from './Recipes/recipes.component';
 import { Pipe, PipeTransform } from '@angular/core';
 import { SearchComponent } from './search/search.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
