@@ -35,7 +35,7 @@ export class RecipeService {
         take(1),
         map((data: any) => {
           this.$recipesByType.next(data.results);
-          return data;
+          return data.results;
         })
       );
   }

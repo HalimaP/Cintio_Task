@@ -46,6 +46,14 @@ type : string = '';
       console.log(this.localRecipes)
    
     });
+    this.recipesByTypeSub = this.recipesService
+    .fetchMoreRecipes('bread')
+    .subscribe((data) => {
+      this.recipesByType = data;
+      console.log("drugi", data);
+      
+    
+    });
   }
 
   ngOnDestroy() {
@@ -79,7 +87,7 @@ this.id = data
         this.recipesByTypeSub = this.recipesService
           .fetchMoreRecipes(type)
           .subscribe((data) => {
-            this.recipesByType = data.results;
+            this.recipesByType = data;
             console.log("prvi", data);
             console.log(type);
             this.segment = [true, false];
@@ -90,7 +98,7 @@ this.id = data
         this.recipesByTypeSub = this.recipesService
           .fetchMoreRecipes(type)
           .subscribe((data) => {
-            this.recipesByType = data.results;
+            this.recipesByType = data;
             console.log("drugi", data);
             console.log(type);
 
@@ -109,7 +117,8 @@ this.id = data
         this.selectedAsFavorite = this.favoriteRecipes.length;
       }
     }
-    // if (this.recipesByType.length > 0) {
+   
+    if (this.recipesByType.length > 0) {
       for (let i = 0; i < this.recipesByType.length; i++) {
         if (this.recipesByType[i].id == id) {
           this.isFavorite[id] = !this.isFavorite[id];
@@ -117,7 +126,7 @@ this.id = data
           this.selectedAsFavorite = this.favoriteRecipes.length;
         }
       }
-    // }
+    }
     //  this.isFavorite = !this.isFavorite
   }
 
@@ -133,21 +142,30 @@ this.id = data
         });
       });
     }
-    if (this.isChecked == true) {
-      this.recipesByType.results.filter((localItem: any) => {
-        this.favoriteRecipes.filter((favoriteItem: any) => {
-          if (localItem === favoriteItem) {
-            this.recipesByType.results = [
-              favoriteItem,
-              ...this.recipesByType.results,
-            ];
-            this.recipesByType.results = [
-              ...new Set(this.recipesByType.results),
-            ];
-          }
+    
+    if (this.isChecked == true && this.segment[0] == true) {
+      if (this.isChecked == true) {
+        this.recipesByType.filter((localItem: any) => {
+          this.favoriteRecipes.filter((favoriteItem: any) => {
+            if (localItem === favoriteItem) {
+              this.recipesByType = [favoriteItem, ...this.recipesByType];
+              this.recipesByType = [...new Set(this.recipesByType)];
+            }
+          });
         });
-      });
+      }
     }
+    if (this.isChecked == true && this.segment[1] == true) {
+      if (this.isChecked == true) {
+        this.recipesByType.filter((localItem: any) => {
+          this.favoriteRecipes.filter((favoriteItem: any) => {
+            if (localItem === favoriteItem) {
+              this.recipesByType = [favoriteItem, ...this.recipesByType];
+              this.recipesByType = [...new Set(this.recipesByType)];
+            }
+          });
+        });
+    }}
     // this.isChecked = false;
   }
 
