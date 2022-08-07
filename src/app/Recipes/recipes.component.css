@@ -79,12 +79,21 @@
 
   /* width: 13%; */
 }
-.segmentItems button {
+.segmentItems button{
   margin-right: 3%;
-  background: #251b1b;
+  background: #1e1d1d;
   color: white;
   width: 100px;
+  border: 2px solid #5d5757;
 }
+.segmentItems .breadButton {
+  margin-right: 3%;
+  background: #dfd9d9;
+  color: black;
+  width: 120px;
+  border: 2px solid #eec6c6;
+}
+
 input {
   margin-left: 2%;
 }

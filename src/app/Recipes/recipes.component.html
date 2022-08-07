@@ -1,7 +1,7 @@
 <div class="searchSegmentItems">
   <div class="segmentItems">
-    <button (click)="segmentChanged('bread')">Bread</button>
-    <button (click)="segmentChanged('sauce')">Sauce</button>
+    <button (click)="segmentChanged('bread')" [ngClass]="type === 'bread' ? 'breadButton' : ''">Bread</button>
+    <button (click)="segmentChanged('sauce')" [ngClass]="type === 'sauce' ? 'breadButton' : ''">Sauce</button>
   </div>
   <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 </div>

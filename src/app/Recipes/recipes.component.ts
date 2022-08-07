@@ -21,7 +21,7 @@ export class RecipesComponent implements OnInit {
   segment = [false, false];
   segment_value: string = "people";
   searchText: string = "";
-
+type : string = '';
   isData: any = [];
   recipesSub: Subscription | undefined;
   recipesByTypeSub: Subscription | undefined;
@@ -75,6 +75,7 @@ export class RecipesComponent implements OnInit {
             console.log("prvi", data);
             console.log(type);
             this.segment = [true, false];
+            this.type = type;
           });
         break;
       case "sauce":
@@ -86,6 +87,7 @@ export class RecipesComponent implements OnInit {
             console.log(type);
 
             this.segment = [false, true];
+            this.type = type;
           });
         break;
     }

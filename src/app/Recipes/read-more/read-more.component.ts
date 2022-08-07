@@ -26,5 +26,9 @@ export class ReadMoreComponent implements OnInit {
       this.articleIndex = params["id"];
       this.title = params["title"];
     });
+    
+    for (let i = 0; i < this.articleData.dishTypes.length; i++){
+      console.log(this.articleData.dishTypes[i])
+    }
   }
 }

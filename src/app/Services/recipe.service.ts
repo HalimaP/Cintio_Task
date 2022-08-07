@@ -11,19 +11,10 @@ export class RecipeService {
   public $recipesByType = new BehaviorSubject<any>(null);
   constructor(private httpClient: HttpClient) {}
 
-  getItem(key: string) {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
-  }
-
-  setItem(key: string, value: any): void {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-
-  public getRecipes() {
+  public getRecipes(number:number = 10) {
     return this.httpClient
       .get(
-        `${environment.mainUrl}/random?type=bread&apiKey=${environment.apiKey}&number=10`
+        `${environment.mainUrl}/random?type=bread&apiKey=${environment.apiKey}&number=${number}`
       )
       .pipe(
         take(1),
@@ -34,10 +25,10 @@ export class RecipeService {
         })
       );
   }
-  fetchMoreRecipes(type: string) {
+  fetchMoreRecipes(type: string = 'bread', number: number = 10) {
     return this.httpClient
       .get(
-        `${environment.mainUrl}/complexSearch?apiKey=${environment.apiKey}&number=10&type=${type}`
+        `${environment.mainUrl}/complexSearch?apiKey=${environment.apiKey}&number=${number}&type=${type}`
       )
       .pipe(
         take(1),
