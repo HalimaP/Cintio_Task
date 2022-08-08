@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   mainUrl : 'https://api.spoonacular.com/recipes',
-  apiKey: "66fea4ed6c994414842c34553ad96437"
+  apiKey: "da464aa1b708483aae7b232eac222bde"
 };
 
 /*

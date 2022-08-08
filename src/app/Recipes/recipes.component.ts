@@ -80,8 +80,6 @@ this.id = data
     }
   }
   segmentChanged(type: string) {
-    // this.segment[0] = ! this.segment[0]
-    // this.segment[1] = ! this.segment[1]
     switch (type) {
       case "bread":
         this.recipesByTypeSub = this.recipesService
@@ -143,8 +141,8 @@ this.id = data
       });
     }
     
-    if (this.isChecked == true && this.segment[0] == true) {
-      if (this.isChecked == true) {
+    if (this.isChecked == true) {
+     
         this.recipesByType.filter((localItem: any) => {
           this.favoriteRecipes.filter((favoriteItem: any) => {
             if (localItem === favoriteItem) {
@@ -153,20 +151,10 @@ this.id = data
             }
           });
         });
-      }
+      
     }
-    if (this.isChecked == true && this.segment[1] == true) {
-      if (this.isChecked == true) {
-        this.recipesByType.filter((localItem: any) => {
-          this.favoriteRecipes.filter((favoriteItem: any) => {
-            if (localItem === favoriteItem) {
-              this.recipesByType = [favoriteItem, ...this.recipesByType];
-              this.recipesByType = [...new Set(this.recipesByType)];
-            }
-          });
-        });
-    }}
-    // this.isChecked = false;
+
+   
   }
 
   onReadMoreClick(id: number) {
